@@ -5,15 +5,15 @@
 rbd list volumes | wc -l
 rbd list volumes-ssd | wc -l
 ~~~
-to list pool and set device class
+### to list pool and set device class
 ~~~
 ceph osd pool ls
 ceph osd crush tree --show-shadow
 ceph osd crush rm-device-class osd.20
 ceph osd crush set-device-class nvme osd.20
 ~~~
-##Now we need to be sure ceph doesn't default the devices, so we disable the update on start. This will allow us to modify classes as they won't be set when they come up.
-##Modify your local /etc/ceph/ceph.conf to include an osd entry:
+## Now we need to be sure ceph doesn't default the devices, so we disable the update on start. This will allow us to modify classes as they won't be set when they come up.
+## Modify your local /etc/ceph/ceph.conf to include an osd entry:
 ~~~
 [osd]
 osd_class_update_on_start = false
@@ -56,6 +56,7 @@ ceph auth caps client.cinder mon 'allow r'  osd 'allow class-read object_prefix 
 ##change in openstack
 
 after the existing ceph column of the file /etc/cinder/cinder.conf
+~~~
 ~~~
 [ceph-ssd]
 backend_host = ceph-cluster-ssd
