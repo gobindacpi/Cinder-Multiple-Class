@@ -1,6 +1,6 @@
-##cinder-multiple-class
+###cinder-multiple-class
 
-#volume-count or list
+###volume-count or list
 ~~~
 rbd list volumes | wc -l
 rbd list volumes-ssd | wc -l
