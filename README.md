@@ -44,19 +44,18 @@ osd_class_update_on_start = false
 cinder authentication
 ceph auth ls
 ceph auth get client.cinder
-~~~
-ceph auth caps client.cinder mon 'allow r'  osd 'allow rwx pool=volumes-ssd, allow rwx pool=volumes, allow rwx pool=vms, allow rx pool=images'
 
+ceph auth caps client.cinder mon 'allow r'  osd 'allow rwx pool=volumes-ssd, allow rwx pool=volumes, allow rwx pool=vms, allow rx pool=images'
+~~~
 ## New:
 ~~~
 ceph auth caps client.cinder mon 'allow r'  osd 'allow class-read object_prefix rbd_children, allow rwx pool=volumes-ssd, allow rwx pool=volumes, allow rwx pool=vms, allow rx pool=images'
 ~~~
-##Restart cinder volume service in compute node
+## Restart cinder volume service in compute node
 
-##change in openstack
+## change in openstack
 
-after the existing ceph column of the file /etc/cinder/cinder.conf
-~~~
+### after the existing ceph column of the file /etc/cinder/cinder.conf
 ~~~
 [ceph-ssd]
 backend_host = ceph-cluster-ssd
