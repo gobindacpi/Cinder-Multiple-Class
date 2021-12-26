@@ -4,7 +4,7 @@
 ~~~
 rbd list volumes | wc -l
 rbd list volumes-ssd | wc -l
-~~
+~~~
 to list pool and set device class
 ~~~
 ceph osd pool ls
